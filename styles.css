@@ -1,0 +1,412 @@
+:root{
+  --navy-900: #071733;
+  --navy-700: #0b2a56;
+  --accent: #2ea1ff;
+  --muted: #9fb3d6;
+  --card: rgba(255,255,255,0.02);
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --danger: #ff6b6b;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+*{box-sizing:border-box}
+
+html, body{
+  min-height:100%;
+  margin:0;
+  background: linear-gradient(
+    180deg,
+    var(--navy-900) 0%,
+    var(--navy-700) 100%
+  );
+  background-attachment: fixed;
+  color:#eaf2ff;
+}
+body{
+  display:flex;
+  flex-direction:column;
+}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+.brand h1{margin:0;font-size:20px}
+.tagline{margin:0;color:var(--muted);font-size:13px}
+
+.nav{display:flex;gap:8px;flex-wrap:wrap}
+
+.nav-btn{
+  background:transparent;
+  border:1px solid transparent;
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.nav-btn.active,
+.nav-btn:hover{
+  background:linear-gradient(90deg,rgba(255,255,255,.03),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.04);
+  color:var(--accent);
+}
+
+/* ================= MAIN ================= */
+
+.main{flex:1}
+
+.view{
+  background:var(--card);
+  padding:18px;
+  border-radius:14px;
+  backdrop-filter: blur(6px);
+}
+
+.hidden{
+  display:none !important;
+}
+
+/* ================= HOME ================= */
+
+.hero{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.hero-text h2{
+  margin:0 0 8px;
+  font-size:26px;
+}
+
+.gombalan{
+  margin:0;
+  color:var(--muted);
+}
+
+.home-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.cta{
+  background:var(--accent);
+  color:#05203a;
+  border:none;
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.photo-placeholder{
+  width:150px;
+  height:150px;
+  border-radius:14px;
+  object-fit:cover;
+}
+
+/* ================= GRID ================= */
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+
+.video-grid img,
+.video-grid video{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* ================= BEST GIRL ================= */
+
+.best-message-card{
+  margin-top:24px;
+  padding:18px;
+  border-radius:14px;
+  background:var(--card);
+}
+
+.best-text{
+  margin-top:12px;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.best-text p{margin-bottom:10px}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  display:flex;
+  justify-content:center;
+  color:var(--muted);
+  padding:6px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:800px){
+  .hero{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+/* =====================================================
+   MATTHEW CHAT (WA STYLE) — ISOLATED & SAFE
+===================================================== */
+
+/* 🔒 HARD LOCK: chat MATI secara default */
+#view-chat{
+  display:none !important;
+}
+
+/* chat hidup HANYA kalau Matthew aktif */
+#view-chat:not(.hidden){
+  display:block !important;
+}
+
+/* chat wrapper */
+#view-chat .chat-wrapper{
+  display:flex;
+  justify-content:center;
+  margin-top:12px;
+}
+
+/* phone */
+#view-chat .chat-phone{
+  width:360px;
+  height:640px;
+  background:#0b141a;
+  border-radius:22px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+/* header */
+.chat-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  background:#1f2c34;
+}
+
+.chat-avatar{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.chat-name{
+  font-weight:600;
+  font-size:14px;
+  color:#fff;
+}
+
+/* body */
+.chat-body{
+  flex:1;
+  padding:12px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  background:#0b141a;
+}
+
+/* bubbles */
+.chat-bubble{
+  max-width:75%;
+  padding:8px 10px;
+  font-size:13px;
+  line-height:1.4;
+  border-radius:10px;
+}
+
+.from-user{
+  background:#005c4b;
+  color:#fff;
+  align-self:flex-end;
+}
+
+.from-matthew{
+  background:#202c33;
+  color:#eaf2ff;
+  align-self:flex-start;
+}
+
+.chat-bubble.typing{
+  font-style:italic;
+  opacity:.75;
+}
+
+/* options */
+.chat-options{
+  padding:10px;
+  background:#1f2c34;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.chat-option-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.2);
+  color:#eaf2ff;
+  padding:6px 10px;
+  border-radius:14px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.chat-option-btn:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* mobile */
+@media (max-width:480px){
+  #view-chat .chat-phone{
+    width:100%;
+    height:85vh;
+    border-radius:18px;
+  }
+}
+
+/* ================= HAPPY BIRTHDAY ONLY ================= */
+
+#view-happy .birthday-card{
+  margin-top:16px;
+  padding:20px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.03);
+  position:relative;
+  overflow:hidden;
+}
+
+#view-happy .birthday-text{
+  font-size:15px;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+
+#view-happy .birthday-text.hidden{
+  display:none;
+}
+
+#view-happy .birthday-line{
+  animation: fadeUp .6s ease both;
+  margin-bottom:8px;
+}
+
+#view-happy .birthday-actions{
+  display:flex;
+  justify-content:center;
+}
+
+#view-happy #birthday-btn:disabled{
+  opacity:.6;
+  cursor:default;
+}
+
+/* fireworks */
+#fireworks-layer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:var(--accent);
+  border-radius:50%;
+  animation: explode .9s ease-out forwards;
+}
+
+/* animations */
+@keyframes explode{
+  0%{
+    transform:scale(1);
+    opacity:1;
+  }
+  100%{
+    transform:scale(3);
+    opacity:0;
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= SECRET ENDING ================= */
+
+.secret-ending{
+  margin-top:18px;
+  padding:16px;
+  border-radius:14px;
+  background:rgba(46,161,255,0.08);
+  border:1px solid rgba(255,255,255,.06);
+  animation: fadeUp 1s ease both;
+}
+
+.secret-title{
+  font-weight:600;
+  margin-bottom:6px;
+  color:var(--accent);
+}
+
+.secret-sign{
+  font-style:italic;
+  opacity:.9;
+}
+  
